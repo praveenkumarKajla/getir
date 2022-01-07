@@ -9,5 +9,8 @@ const ROUTE_PREFIX_V1 = BASE_URL + API_VERSION;
 export function initAllRoutes(server: Server): void {
   const recordRoutes = new RecordRoutes(server, ROUTE_PREFIX_V1);
   const table = server.table();
+  /**
+   * log all the server routes
+  */
   console.log(table.map(x => ({ method: x.method, path: x.path })));
 }

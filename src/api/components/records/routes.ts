@@ -17,8 +17,12 @@ export class RecordRoutes {
     this.controller = new RecordsController();
     this.initRoutes();
   }
+  
 
   private initRoutes(): void {
+    /**
+     * getRecords return all records between two dates & sum of counts array b/w two numbers
+    */
     this.server.route({
       method: "GET",
       path: `${this.ROUTE_PREFIX}${this.route}`,

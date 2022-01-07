@@ -17,12 +17,19 @@ const server: Server = new Server({
 });
 
 export const init = async () => {
-  // initialize routes
+  /**
+   * initialize routes
+  */
   initAllRoutes(server);
-  // connect to db
+  /**
+   * connect to db
+  */
   await connectToDB(DB_CONFIG.MONGODB_CONNECTION_STRING)
-  // start server
+  /**
+   * Start the Server & log each request & response
+  */
   try {
+    
     server.events.on("response", (request : Request) => {
       console.log(request.payload);
       console.log(`${request.info.remoteAddress}: ${request.method.toUpperCase()} ${request.path} --> ${request.response}`);

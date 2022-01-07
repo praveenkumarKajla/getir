@@ -13,6 +13,7 @@ import { Constants } from "@config/constants";
 
 
 export class RecordsController {
+
   getRecords = async (request: Request, h: ResponseToolkit)
   : Promise<RecordsResponse | ResponseObject> => {
     let payload = (request.query || {})
@@ -33,4 +34,5 @@ export class RecordsController {
       return h.response(RECORD_ERRROS.RECORDS_NOT_FOUND).code(404);
     }
   }
+
 }
