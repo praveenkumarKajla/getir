@@ -19,7 +19,9 @@ export class RecordsController {
     let updatedPayload: MultiRecordsPayload
     try {
       updatedPayload = await validate.get.records.payload.validateAsync(payload) as MultiRecordsPayload;
+      console.log(updatedPayload)
     }
+    
     catch (error) { 
       return h.response({ message: error.message, payload }).code(400);
     }
