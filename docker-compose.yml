@@ -1,0 +1,29 @@
+version: '3'
+
+services:
+  # mongodb:
+  #   image: mongo:latest
+  #   environment:
+  #     MONGO_INITDB_ROOT_USERNAME: root
+  #     MONGO_INITDB_ROOT_PASSWORD: rootpassword
+  #   ports:
+  #     - 27017:27017
+  #   volumes:
+  #     - mongodb_data_container:/data/db
+
+  web:
+    image: "node:alpine"
+    entrypoint:
+      - "sh"
+      - "-c"
+      - "npm run test && npm install && npm run startDocker "
+    working_dir: "/usr/src/app"
+    ports:
+      - "80:80"
+    # depends_on:
+    #   - mongodb
+    volumes:
+      - ".:/usr/src/app"
+      - "/usr/src/app/node_modules"
+volumes:
+  mongodb_data_container:
