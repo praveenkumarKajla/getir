@@ -1,0 +1,60 @@
+{
+  "name": "Getir",
+  "version": "1.0.0",
+  "description": "Getir Assignment",
+  "main": "dist/index.js",
+  "scripts": {
+    "test": "lab --sourcemaps --transform node_modules/lab-transform-typescript",
+    "dev": "tsc & tsc -w & nodemon -q",
+    "startDocker": "tsc & tsc -w & nodemon -q",
+    "start": "npm run build && npm run serve",
+    "serve": "node dist/index.js",
+    "build": " npm run build-ts",
+    "build-ts": "tsc"
+  },
+  "repository": {},
+  "keywords": [],
+  "author": "praveenkumarkajla",
+  "license": "ISC",
+  "devDependencies": {
+    "@hapi/code": "^8.0.3",
+    "@hapi/lab": "^24.3.2",
+    "@types/bcrypt": "^5.0.0",
+    "@types/hapi__hapi": "^20.0.9",
+    "@types/node": "^14.14.22",
+    "@typescript-eslint/eslint-plugin": "^4.22.0",
+    "@typescript-eslint/parser": "^4.22.0",
+    "eslint": "^7.25.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "lab-transform-typescript": "^3.0.1",
+    "nodemon": "^2.0.7",
+    "supertest": "^6.1.6",
+    "ts-node": "^9.1.1",
+    "typescript": "^4.1.3"
+  },
+  "dependencies": {
+    "@hapi/hapi": "^20.1.0",
+    "@joi/date": "^2.1.0",
+    "bcrypt": "^5.0.1",
+    "decko": "^1.2.0",
+    "joi": "^17.4.0",
+    "lodash": "^4.17.21",
+    "module-alias": "^2.2.2",
+    "mongoose": "^6.1.5",
+    "uuid": "^8.3.2"
+  },
+  "_moduleAliases": {
+    "@services": "dist/services",
+    "@components": "dist/api/components",
+    "@config": "dist/config",
+    "@typeroot": "dist/typeroot",
+    "@models": "dist/models",
+    "@api": "dist/api",
+    "@utils": "dist/utils",
+    "@errors": "dist/errors",
+    "@dao": "dist/dao",
+    "@app": "dist"
+  }
+}
