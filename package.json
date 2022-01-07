@@ -10,7 +10,8 @@
     "start": "npm run build && npm run serve",
     "serve": "node dist/index.js",
     "build": " npm run build-ts",
-    "build-ts": "tsc"
+    "build-ts": "tsc",
+    "postinstall": "npm run build"
   },
   "repository": {},
   "keywords": [],
