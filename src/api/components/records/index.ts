@@ -14,6 +14,10 @@ import { Constants } from "@config/constants";
 
 export class RecordsController {
 
+
+   /**
+     * getRecords return all records between two dates & sum of counts array b/w two numbers
+    */
   getRecords = async (request: Request, h: ResponseToolkit)
   : Promise<RecordsResponse | ResponseObject> => {
     let payload = (request.query || {})

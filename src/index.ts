@@ -16,6 +16,16 @@ const server: Server = new Server({
   host: HOST,
 });
 
+/**
+ * Async function responsible for initializing the server functions.
+ *
+ * `initAllRoutes` initializes all the routes defined for the apis
+ * 
+ * `connectToDB` Connects to mongodb server & takes connection string as input
+ * 
+ * 
+ */
+
 export const init = async () => {
   /**
    * initialize routes
@@ -29,11 +39,17 @@ export const init = async () => {
    * Start the Server & log each request & response
   */
   try {
-    
+    /**
+    * This event is fired whenever the server returns a response and we can use it to log request & response properties
+    * @event
+    */
     server.events.on("response", (request : Request) => {
       console.log(request.payload);
       console.log(`${request.info.remoteAddress}: ${request.method.toUpperCase()} ${request.path} --> ${request.response}`);
     });
+    /**
+     * Start the server
+    */
     await server.start();
     console.log(`Server running at: ${server.info.uri}`);
   } catch (e) {
@@ -41,10 +57,17 @@ export const init = async () => {
   }
 };
 
+/**
+* This event is fired whenever server couldn't handle an exceptions and we log it to know the reason
+* @event
+*/
 process.on("unhandledRejection", (reason, p) => {
   console.log("UnhandledRejection", p, "reason:", reason);
 });
 
+/**
+ * call the initialize function  whenever this file is imported for testing purposes
+*/
 init().then(
   (res) => {
     console.log(res);

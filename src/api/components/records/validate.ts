@@ -13,7 +13,7 @@ export default {
              * startDate & endDate are validated & converted to Date object
              * minCount & maxCount are validated & converted to Number
             */
-            payload: Joi.object().keys({
+            payload: <JoiImport.ObjectSchema> Joi.object().keys({
                 startDate: Joi.date().format("YYYY-MM-DD").required(),
                 endDate: Joi.date().format("YYYY-MM-DD").required().greater(Joi.ref('startDate')),
                 minCount: Joi.number().min(0).required(),
